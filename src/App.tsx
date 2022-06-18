@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {CounterComponent} from "./components/counter.component";
-import {ParentComponent} from "./components/parent.component";
+import {CounterComponent} from "./lifted-local-state/counter.component";
+import {ParentComponent} from "./lifted-local-state/parent.component";
 
 function App() {
     return (

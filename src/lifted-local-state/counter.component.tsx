@@ -1,14 +1,14 @@
 import React, {Dispatch, SetStateAction} from "react";
 
 interface CounterProps {
-    count: number;
     setCount: Dispatch<SetStateAction<number>>;
+    counterDisplay: JSX.Element
 }
 
-export const CounterComponent = ({count, setCount}: CounterProps) => {
+export const CounterComponent = ({setCount, counterDisplay}: CounterProps) => {
     return (
         <>
-            <div>Counter {count}</div>
+            <div>{counterDisplay}</div>
             <button onClick={() => setCount((c) => c + 1)}>Inc</button>
         </>
     )
