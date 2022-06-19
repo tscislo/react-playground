@@ -1,13 +1,19 @@
-import React, {useContext} from "react";
+import React, {memo, useContext, useEffect, useRef} from "react";
 import {ColorContext} from "./color.context";
 
-export const ColorComponent = () => {
+export const ColorComponent = ({count}: { count: number }) => {
     const colorContext = useContext(ColorContext);
+    const renderCount = useRef(1);
+    useEffect(() => {
+        renderCount.current += 1;
+    })
     return (
         <div style={{
-            width: '50px',
             height: '50px',
+            width: '50vh',
             backgroundColor: colorContext
-        }}/>
+        }}>Count: {count}, render count {renderCount.current}</div>
     )
 }
+
+export const ColorMemo = memo(ColorComponent);
