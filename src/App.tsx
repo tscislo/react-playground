@@ -2,12 +2,14 @@ import React from 'react';
 import './App.css';
 import {ParentComponent} from "./lifted-local-state/parent.component";
 import {ParentColorComponent} from "./primitive-context/parent-context";
-import {BasicHookComponent} from "./basic-hook-component/basic-hook.component";
+import {BasicStateHooksComponent} from "./basic-state-hooks-component/basic-state-hooks.component";
+import {EffectHookComponent} from "./effect-hook-component/effect-hook.component"
 
 function App() {
     return (
         <div className="App">
-            <BasicHookComponent/>
+            <EffectHookComponent/>
+            <BasicStateHooksComponent/>
             <ParentComponent/>
             <ParentColorComponent />
         </div>

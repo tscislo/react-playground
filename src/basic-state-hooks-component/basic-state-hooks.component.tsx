@@ -80,7 +80,7 @@ const countReducer = (state: CountState, action: MathAction): CountState => {
 
 }
 
-export const BasicHookComponent = () => {
+export const BasicStateHooksComponent = () => {
     const [count, setCount] = useState<number>(0);
     const [state, dispatchMathAction] = useReducer(countReducer, {count: 100, modifierValue: 0});
     return (
