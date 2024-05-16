@@ -81,11 +81,10 @@ const countReducer = (state: CountState, action: MathAction): CountState => {
 }
 
 export const BasicStateHooksComponent = () => {
-    console.log('BasicStateHooksComponent render')
     const [count, setCount] = useState<number>(0);
     const [state, dispatchMathAction] = useReducer(countReducer, {count: 100, modifierValue: 0});
     const rerenderCount = useRef(0);
-    rerenderCount.current++;
+    rerenderCount.current++; // in case of state, updating state like this would result in infinite loop
     return (
         <div style={{'border': '2px green solid'}}>
             <div>Rerender count: {rerenderCount.current}</div>

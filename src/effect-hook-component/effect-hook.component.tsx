@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {CharacterComponent} from "../character-component/character.component";
+import {CharacterPowerComponent} from "../character-component/character-power.component";
 
 const getPrimitiveFromApi = async (url: string, controller: AbortController) => {
     const signal = controller.signal;
@@ -34,21 +35,19 @@ export const EffectHookComponent = () => {
 
     return (
         <div style={{'border': '2px orange solid'}}>
-
             {!allCharacters
                 ? (<div>Loading...</div>)
                 : (
                     <>
                         <select onChange={(event) => setCharacterId(event.target.value)}>
-                            {allCharacters?.map((character) => (
-                                <option value={character.id} key={character.id}>{character.name}</option>))}
+                            {allCharacters?.map((characterItem) => (
+                                <option value={characterItem.id} key={characterItem.id}>{characterItem.name}</option>))}
                         </select>
                         <CharacterComponent name={character?.name} dateOfBirth={character?.dateOfBirth}/>
+                        <CharacterPowerComponent character={character}/>
                     </>
                 )
             }
-
-
         </div>
     )
 }
