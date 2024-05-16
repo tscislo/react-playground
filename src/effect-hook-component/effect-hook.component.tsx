@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {CharacterComponent} from "../character-component/character.component";
 
 
 export const EffectHookComponent = () => {
@@ -41,8 +42,7 @@ export const EffectHookComponent = () => {
                             {allCharacters?.map((character) => (
                                 <option value={character.id} key={character.id}>{character.name}</option>))}
                         </select>
-                        <pre>{character?.name}</pre>
-                        <pre>{character?.dateOfBirth}</pre>
+                        <CharacterComponent name={character?.name} dateOfBirth={character?.dateOfBirth} />
                     </>
                 )
             }
