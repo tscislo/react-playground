@@ -1,6 +1,11 @@
 import {useEffect, useState} from "react";
 import {CharacterComponent} from "../character-component/character.component";
 
+const getPrimitiveFromApi = async (url: string, controller: AbortController) => {
+    const signal = controller.signal;
+    const response = await fetch(url, {signal});
+    return await response.json();
+}
 
 export const EffectHookComponent = () => {
     const [character, setCharacter] = useState<any>();
@@ -9,9 +14,7 @@ export const EffectHookComponent = () => {
 
     useEffect(() => {
         const controller = new AbortController();
-        const signal = controller.signal;
-        fetch('https://hp-api.onrender.com/api/characters', {signal})
-            .then(response => response.json())
+        getPrimitiveFromApi('https://hp-api.onrender.com/api/characters', controller)
             .then(setAllCharacters);
         return () => {
             controller.abort("Component unmounted. Aborting fetch.");
@@ -20,10 +23,8 @@ export const EffectHookComponent = () => {
 
     useEffect(() => {
         const controller = new AbortController();
-        const signal = controller.signal;
         if (characterId) {
-            fetch(`https://hp-api.onrender.com/api/character/${characterId}`, {signal})
-                .then(response => response.json())
+            getPrimitiveFromApi(`https://hp-api.onrender.com/api/character/${characterId}`, controller)
                 .then((characters) => setCharacter(characters[0]));
         }
         return () => {
@@ -42,7 +43,7 @@ export const EffectHookComponent = () => {
                             {allCharacters?.map((character) => (
                                 <option value={character.id} key={character.id}>{character.name}</option>))}
                         </select>
-                        <CharacterComponent name={character?.name} dateOfBirth={character?.dateOfBirth} />
+                        <CharacterComponent name={character?.name} dateOfBirth={character?.dateOfBirth}/>
                     </>
                 )
             }
