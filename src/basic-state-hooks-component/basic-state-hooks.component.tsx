@@ -1,4 +1,4 @@
-import {useReducer, useState} from "react";
+import {useReducer, useRef, useState} from "react";
 
 const enum MathOperationType {
     INC = 'INC',
@@ -81,10 +81,14 @@ const countReducer = (state: CountState, action: MathAction): CountState => {
 }
 
 export const BasicStateHooksComponent = () => {
+    console.log('BasicStateHooksComponent render')
     const [count, setCount] = useState<number>(0);
     const [state, dispatchMathAction] = useReducer(countReducer, {count: 100, modifierValue: 0});
+    const rerenderCount = useRef(0);
+    rerenderCount.current++;
     return (
         <div style={{'border': '2px green solid'}}>
+            <div>Rerender count: {rerenderCount.current}</div>
             <div>Basic useState counter: {count}</div>
             <div>
                 <button onClick={() => setCount((c) => c + 1)}>Inc +1</button>
