@@ -41,7 +41,9 @@ export const EffectHookComponent = () => {
                     <>
                         <select onChange={(event) => setCharacterId(event.target.value)}>
                             {allCharacters?.map((characterItem) => (
-                                <option value={characterItem.id} key={characterItem.id}>{characterItem.name}</option>))}
+                                <option
+                                    data-testid={characterItem.id}
+                                    value={characterItem.id} key={characterItem.id}>{characterItem.name}</option>))}
                         </select>
                         <CharacterComponent name={character?.name} dateOfBirth={character?.dateOfBirth}/>
                         <CharacterPowerComponent character={character}/>
