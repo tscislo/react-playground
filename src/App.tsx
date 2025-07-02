@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {ListContainerComponent} from "./basic-parent-child-communication/list-container.component";
 import {ParentComponent} from "./lifted-local-state/parent.component";
 import {ParentColorComponent} from "./primitive-context/parent-context";
 import {BasicStateHooksComponent} from "./basic-state-hooks-component/basic-state-hooks.component";
@@ -21,6 +22,7 @@ function App() {
             <BasicStateHooksComponent/>
             <ParentComponent/>
             <ParentColorComponent />
+            <ListContainerComponent />
         </div>
     );
 }
