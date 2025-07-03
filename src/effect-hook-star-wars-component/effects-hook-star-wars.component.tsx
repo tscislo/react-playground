@@ -29,12 +29,12 @@ export const EffectsHookStarWarsComponent = () => {
         }
     }, []);
 
-    const onMovieSelected = (episodeId: number) => {
+    const onMovieSelected = useCallback((episodeId: number) => {
         setSelectedMovieEpisodeId(episodeId);
-    }
+    }, []);
 
-    const getSelectedMovie = useCallback(() => moviesState?.find((movie) =>
-            movie.episode_id===selectedMovieEpisodeId), [selectedMovieEpisodeId]);
+    const getSelectedMovie = useCallback(() =>
+            moviesState?.find((movie) => movie.episode_id === selectedMovieEpisodeId), [selectedMovieEpisodeId]);
 
     return (
             <div style={{'border': '2px orange solid'}}>
