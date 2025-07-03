@@ -1,6 +1,6 @@
 import {useCallback, useMemo, useState} from "react";
 
-export const MemoizedComponent = ({param}: {param: number}) => {
+export const WithUseMemoHookComponent = ({param}: {param: number}) => {
     console.log('MemoizedComponent');
     const [state, setState] = useState(0);
 

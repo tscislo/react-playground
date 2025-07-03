@@ -1,14 +1,22 @@
-import {MemoizedComponent} from "./memoized.component";
 import {useState} from "react";
+import {MemoizedComponent} from "./memoized-component";
+import {RegularComponent} from "./regular-component";
+import {WithUseMemoHookComponent} from "./withUseMemoHookComponent";
 
-export const MemoizationHooks = () => {
-    console.log('MemoizationHooks')
+const user = {
+    name: "John",
+}
+
+export const SampleComponent = () => {
+    console.log('SampleComponent')
     const [tick, setTick] = useState(0);
 
     return (
-        <div style={{'border': '2px orange solid'}}>
-            <button onClick={() => setTick(tick + 1)}>Increment</button>
-            <MemoizedComponent param={tick}/>
-        </div>
+            <div style={{'border': '2px orange solid'}}>
+                <button onClick={() => setTick(tick + 1)}>Increment ({tick})</button>
+                <WithUseMemoHookComponent param={tick}/>
+                <MemoizedComponent user={user}/>
+                <RegularComponent user={user}/>
+            </div>
     )
 }
