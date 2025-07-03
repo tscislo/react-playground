@@ -18,6 +18,7 @@ export const EffectsHookStarWarsComponent = () => {
     console.log("EffectsHookStarWarsComponent");
     const [moviesState, setMovies] = useState<Movie[]>();
     const [selectedMovieEpisodeId, setSelectedMovieEpisodeId] = useState<number | undefined>(undefined);
+    const [nameFilter, setNameFilter] = useState<string>("");
 
     useEffect(() => {
         const controller = new AbortController();
@@ -50,13 +51,17 @@ export const EffectsHookStarWarsComponent = () => {
                                                 key={episode.episode_id}>{episode.title}</option>
                                 ))}
                             </select>
+                            <input  placeholder={"search by character name"}
+                                    value={nameFilter} onChange={(e) => setNameFilter(e.target.value)} />
                             {selectedMovieEpisodeId ?
                                     <>
                                         <h4>Selected episode: {getSelectedMovie()?.title}</h4>
                                         <div> {getSelectedMovie()?.opening_crawl} </div>
                                         <div> {getSelectedMovie()?.characters
-                                                .map((characterUrl) => <StarWarsCharacterComponent key={characterUrl}
-                                                                                                   url={characterUrl}/>)} </div>
+                                                .map((characterUrl) => <StarWarsCharacterComponent
+                                                                                                    nameFilter={nameFilter}
+                                                                                                    key={characterUrl}
+                                                                                                    url={characterUrl}/>)} </div>
                                     </>
                                     :<></>}
                         </>
