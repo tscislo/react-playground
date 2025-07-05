@@ -1,3 +1,4 @@
+import {produce} from "immer";
 import {useReducer, useRef, useState} from "react";
 
 const enum MathOperationType {
@@ -40,42 +41,36 @@ interface CountState {
 const countReducer = (state: CountState, action: MathAction): CountState => {
     switch (action.type) {
         case MathActionType.CHANGE_OPERATION:
-            return {
-                ...state,
-                currentMathOperation: action.value
-            }
+            return produce(state, (draft) => {
+                draft.currentMathOperation = action.value;
+            })
         case MathActionType.CHANGE_MODIFIER_VALUE:
-            return {
-                ...state,
-                modifierValue: action.value
-            }
+            return produce(state, (draft) => {
+                draft.modifierValue = action.value;
+            })
         case MathActionType.CALCULATE:
             switch (state.currentMathOperation) {
                 case MathOperationType.INC:
-                    return {
-                        ...state,
-                        count: state.count + state.modifierValue
-                    }
+                    return produce(state, (draft) => {
+                        draft.count = state.count + state.modifierValue;
+                    })
                 case MathOperationType.DEC:
-                    return {
-                        ...state,
-                        count: state.count - state.modifierValue
-                    }
+                    return produce(state, (draft) => {
+                        draft.count = state.count - state.modifierValue;
+                    })
                 case MathOperationType.MUL:
-                    return {
-                        ...state,
-                        count: state.count * state.modifierValue
-                    }
+                    return produce(state, (draft) => {
+                        draft.count = state.count * state.modifierValue;
+                    })
                 case MathOperationType.DIV:
-                    return {
-                        ...state,
-                        count: state.count / state.modifierValue
-                    }
+                    return produce(state, (draft) => {
+                        draft.count = state.count / state.modifierValue;
+                    })
                 default:
-                    return state;
+                    return {...state};
             }
         default:
-            return state;
+            return {...state};
     }
 
 }
@@ -86,38 +81,38 @@ export const BasicStateHooksComponent = () => {
     const rerenderCount = useRef(0);
     rerenderCount.current++; // in case of state, updating state like this would result in infinite loop
     return (
-        <div style={{'border': '2px green solid'}}>
-            <div>Rerender count: {rerenderCount.current}</div>
-            <div>Basic useState counter: {count}</div>
-            <div>
-                <button onClick={() => setCount((c) => c + 1)}>Inc +1</button>
-                <button onClick={() => setCount((c) => c - 1)}>Dec -1</button>
+            <div style={{'border': '2px green solid'}}>
+                <div>Rerender count: {rerenderCount.current}</div>
+                <div>Basic useState counter: {count}</div>
+                <div>
+                    <button onClick={() => setCount((c) => c + 1)}>Inc +1</button>
+                    <button onClick={() => setCount((c) => c - 1)}>Dec -1</button>
+                </div>
+                <div>
+                    <div>{state.count}</div>
+                    <div>Current selected operation: {state.currentMathOperation}</div>
+                    <div>Current modifier value: {state.modifierValue}</div>
+                    <select onChange={(event) =>
+                            dispatchMathAction({
+                                type: MathActionType.CHANGE_OPERATION,
+                                value: event.target.value as MathOperationType
+                            })
+                    }>
+                        <option value={MathOperationType.INC}>Inc
+                        </option>
+                        <option value={MathOperationType.DEC}>Dec
+                        </option>
+                        <option value={MathOperationType.MUL}>Multiply</option>
+                        <option value={MathOperationType.DIV}>Divide</option>
+                    </select>
+                    <input type="text" onChange={(event) =>
+                            dispatchMathAction({
+                                type: MathActionType.CHANGE_MODIFIER_VALUE,
+                                value: parseInt(event.target.value)
+                            })
+                    }/>
+                    <button onClick={() => dispatchMathAction({type: MathActionType.CALCULATE})}>OK</button>
+                </div>
             </div>
-            <div>
-                <div>{state.count}</div>
-                <div>Current selected operation: {state.currentMathOperation}</div>
-                <div>Current modifier value: {state.modifierValue}</div>
-                <select onChange={(event) =>
-                    dispatchMathAction({
-                        type: MathActionType.CHANGE_OPERATION,
-                        value: event.target.value as MathOperationType
-                    })
-                }>
-                    <option value={MathOperationType.INC}>Inc
-                    </option>
-                    <option value={MathOperationType.DEC}>Dec
-                    </option>
-                    <option value={MathOperationType.MUL}>Multiply</option>
-                    <option value={MathOperationType.DIV}>Divide</option>
-                </select>
-                <input type="text" onChange={(event) =>
-                    dispatchMathAction({
-                        type: MathActionType.CHANGE_MODIFIER_VALUE,
-                        value: parseInt(event.target.value)
-                    })
-                }/>
-                <button onClick={() => dispatchMathAction({type: MathActionType.CALCULATE})}>OK</button>
-            </div>
-        </div>
     )
 }
