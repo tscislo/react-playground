@@ -1,8 +1,8 @@
-import React, {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, ReactElement, SetStateAction} from "react";
 
 interface CounterProps {
     setCount: Dispatch<SetStateAction<number>>;
-    counterDisplay: JSX.Element
+    counterDisplay: ReactElement
 }
 
 export const CounterComponent = ({setCount, counterDisplay}: CounterProps) => {

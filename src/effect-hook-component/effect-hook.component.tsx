@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {CharacterComponent} from "../character-component/character.component";
 import {CharacterPowerComponent} from "../character-component/character-power.component";
 
-const getPrimitiveFromApi = async (url: string, controller: AbortController) => {
+export const getPrimitiveFromApi = async (url: string, controller: AbortController) => {
     const signal = controller.signal;
     const response = await fetch(url, {signal});
     return await response.json();
