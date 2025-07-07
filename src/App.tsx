@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {ListContainerComponent} from "./basic-parent-child-communication/list-container.component";
+import {UserRegistrationComponent} from "./data-sharing-with-context/user-registration.component";
 import {EffectsHookStarWarsComponent} from "./effect-hook-star-wars-component/effects-hook-star-wars.component";
 import {ParentComponent} from "./lifted-local-state/parent.component";
 import {ParentColorComponent} from "./primitive-context/parent-context";
@@ -25,6 +26,7 @@ function App() {
             <ParentComponent/>
             <ParentColorComponent />
             <ListContainerComponent />
+            <UserRegistrationComponent />
         </div>
     );
 }
