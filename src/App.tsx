@@ -7,6 +7,7 @@ import {EffectHookComponent} from "./effect-hook-component/effect-hook.component
 import {EffectsHookStarWarsComponent} from "./effect-hook-star-wars-component/effects-hook-star-wars.component";
 import {ParentComponent} from "./lifted-local-state/parent.component";
 import {SampleComponent} from "./memoization-hooks/memoization-hooks.component";
+import {NativeObservableApiComponent} from "./native-observable-api/native-observable-api.component";
 import {ParentColorComponent} from "./primitive-context/parent-context";
 import {MySuspenseConsumerComponent} from "./suspense/my-suspense-consumer.component";
 import {ThemeCharacterComponent} from "./theme-context/theme-character.component";
@@ -15,6 +16,7 @@ import {ThemeContextProvider} from "./theme-context/theme-context.provider";
 function App() {
     return (
         <div className="App">
+            <NativeObservableApiComponent />
             <MySuspenseConsumerComponent />
             <EffectsHookStarWarsComponent />
             <ThemeContextProvider>
