@@ -21,7 +21,7 @@ function App() {
                         <Route path={'/'} element={<MainComponent/>}>
                             <Route index element={<IndexComponent/>}/>
                             <Route path="basic-parent-child-communication" element={<ListContainerComponent/>}/>
-                            <Route path="effects-hook-star-wars" element={<EffectsHookStarWarsComponent/>}/>
+                            <Route path="effects-hook-star-wars/:movieId?" element={<EffectsHookStarWarsComponent/>}/>
                             <Route path="lifted-local-state" element={<ParentComponent/>}/>
                             <Route path="primitive-context" element={<ParentColorComponent/>}/>
                             <Route path="basic-state-hooks" element={<BasicStateHooksComponent/>}/>

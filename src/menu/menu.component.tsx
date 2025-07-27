@@ -1,15 +1,16 @@
 import {memo} from "react";
-import {Link} from "react-router";
+import {NavLink} from "react-router";
+import "./menu.component.css";
 
 export const MenuComponent = memo(() => {
     return <ul>
-        <li><Link to={'/basic-parent-child-communication'}>basic-parent-child-communication</Link></li>
-        <li><Link to={'/effects-hook-star-wars'}>effects-hook-star-wars</Link></li>
-        <li><Link to={'/lifted-local-state'}>lifted-local-state</Link></li>
-        <li><Link to={'/primitive-context'}>primitive-context</Link></li>
-        <li><Link to={'/basic-state-hooks'}>basic-state-hooks</Link></li>
-        <li><Link to={'/effect-hook-component'}>effect-hook-component</Link></li>
-        <li><Link to={'/memoization-hooks'}>memoization-hooks</Link></li>
-        <li><Link to={'/theme-context'}>theme-context</Link></li>
+        <li><NavLink to={'/basic-parent-child-communication'}>basic-parent-child-communication</NavLink></li>
+        <li><NavLink to={'/effects-hook-star-wars'}>effects-hook-star-wars</NavLink></li>
+        <li><NavLink to={'/lifted-local-state'}>lifted-local-state</NavLink></li>
+        <li><NavLink to={'/primitive-context'}>primitive-context</NavLink></li>
+        <li><NavLink to={'/basic-state-hooks'}>basic-state-hooks</NavLink></li>
+        <li><NavLink to={'/effect-hook-component'}>effect-hook-component</NavLink></li>
+        <li><NavLink to={'/memoization-hooks'}>memoization-hooks</NavLink></li>
+        <li><NavLink to={'/theme-context'}>theme-context</NavLink></li>
     </ul>
 })
