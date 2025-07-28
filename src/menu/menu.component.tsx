@@ -13,5 +13,8 @@ export const MenuComponent = memo(() => {
         <li><NavLink to={'/memoization-hooks'}>memoization-hooks</NavLink></li>
         <li><NavLink to={'/theme-context'}>theme-context</NavLink></li>
         <li><NavLink to={'/state-context'}>state-context</NavLink></li>
+        <li><NavLink to={'native-observable-api'}>native-observable-api</NavLink></li>
+        <li><NavLink to={'my-supspence'}>my-supspence</NavLink></li>
+        <li><NavLink to={'user-registration'}>user-registration</NavLink></li>
     </ul>
 })
