@@ -10,6 +10,7 @@ import {ParentComponent} from "./lifted-local-state/parent.component";
 import {MainComponent} from "./main/main.component";
 import {SampleComponent} from "./memoization-hooks/memoization-hooks.component";
 import {ParentColorComponent} from "./primitive-context/parent-context";
+import {StateContextParentComponent} from "./state-context/state-context-parent.component";
 import {ThemeCharacterComponent} from "./theme-context/theme-character.component";
 import {ThemeContextProvider} from "./theme-context/theme-context.provider";
 
@@ -34,6 +35,8 @@ function App() {
                                     <ThemeCharacterComponent/>
                                 </ThemeContextProvider>
                             }/>
+                            <Route path="state-context" element={<StateContextParentComponent />}/>
+                            <Route path="*" element={<h1>Page not found</h1>}/>
                         </Route>
                     </Routes>
                 </div>

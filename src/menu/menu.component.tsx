@@ -12,5 +12,6 @@ export const MenuComponent = memo(() => {
         <li><NavLink to={'/effect-hook-component'}>effect-hook-component</NavLink></li>
         <li><NavLink to={'/memoization-hooks'}>memoization-hooks</NavLink></li>
         <li><NavLink to={'/theme-context'}>theme-context</NavLink></li>
+        <li><NavLink to={'/state-context'}>state-context</NavLink></li>
     </ul>
 })
