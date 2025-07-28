@@ -17,5 +17,6 @@ export const MenuComponent = memo(() => {
         <li><NavLink to={'my-supspence'}>my-supspence</NavLink></li>
         <li><NavLink to={'user-registration'}>user-registration</NavLink></li>
         <li><NavLink to={'forward-ref'}>forward-ref</NavLink></li>
+        <li><NavLink to={'deferred-value'}>deferred-value</NavLink></li>
     </ul>
 })

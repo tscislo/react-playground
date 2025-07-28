@@ -17,6 +17,7 @@ import {StateContextParentComponent} from "./state-context/state-context-parent.
 import {MySuspenseConsumerComponent} from "./suspense/my-suspense-consumer.component";
 import {ThemeCharacterComponent} from "./theme-context/theme-character.component";
 import {ThemeContextProvider} from "./theme-context/theme-context.provider";
+import {DeferredValueConsumer} from "./use-deferred-value/use-deferred-value.component";
 
 function App() {
     return (
@@ -44,6 +45,7 @@ function App() {
                             <Route path="my-supspence" element={<MySuspenseConsumerComponent />} />
                             <Route path="user-registration" element={<UserRegistrationComponent />} />
                             <Route path="forward-ref" element={<ForwardRefComponent />} />
+                            <Route path="deferred-value" element={<DeferredValueConsumer />} />
                             <Route path="*" element={<h1>Page not found</h1>}/>
                         </Route>
                     </Routes>
