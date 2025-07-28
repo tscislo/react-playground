@@ -5,7 +5,8 @@ export const ThemeContextProvider = (props: PropsWithChildren) => {
     const [theme, setTheme] = useState(useContext(ThemeContext));
 
     return (
-        <ThemeContext.Provider value={theme}>
+        <ThemeContext value={theme}>
+            <div data-testid={'someText'}>Some text</div>
             <div style={{'border': '2px blue solid'}}>
                 <select value={theme} onChange={(e) => setTheme(e.target.value as Theme)}>
                     <option value={Theme.LIGHT}>Light</option>
@@ -13,6 +14,6 @@ export const ThemeContextProvider = (props: PropsWithChildren) => {
                 </select>
                 {props.children}
             </div>
-        </ThemeContext.Provider>
+        </ThemeContext>
     );
 }
