@@ -6,6 +6,7 @@ import {BasicStateHooksComponent} from "./basic-state-hooks-component/basic-stat
 import {UserRegistrationComponent} from "./data-sharing-with-context/user-registration.component";
 import {EffectHookComponent} from "./effect-hook-component/effect-hook.component"
 import {EffectsHookStarWarsComponent} from "./effect-hook-star-wars-component/effects-hook-star-wars.component";
+import {ForwardRefComponent} from "./forward-ref/forward-ref.component";
 import {IndexComponent} from "./index/index.component";
 import {ParentComponent} from "./lifted-local-state/parent.component";
 import {MainComponent} from "./main/main.component";
@@ -42,6 +43,7 @@ function App() {
                             <Route path="native-observable-api" element={<NativeObservableApiComponent />} />
                             <Route path="my-supspence" element={<MySuspenseConsumerComponent />} />
                             <Route path="user-registration" element={<UserRegistrationComponent />} />
+                            <Route path="forward-ref" element={<ForwardRefComponent />} />
                             <Route path="*" element={<h1>Page not found</h1>}/>
                         </Route>
                     </Routes>

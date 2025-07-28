@@ -16,5 +16,6 @@ export const MenuComponent = memo(() => {
         <li><NavLink to={'native-observable-api'}>native-observable-api</NavLink></li>
         <li><NavLink to={'my-supspence'}>my-supspence</NavLink></li>
         <li><NavLink to={'user-registration'}>user-registration</NavLink></li>
+        <li><NavLink to={'forward-ref'}>forward-ref</NavLink></li>
     </ul>
 })

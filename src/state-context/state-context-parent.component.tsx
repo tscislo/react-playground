@@ -10,12 +10,12 @@ export const StateContextParentComponent = () => {
 
     return <>
         <h1>StateContextParentComponent</h1>
-        <StateContext.Provider value={{
+        <StateContext value={{
             increment,
             decrement,
             value
         }}>
             <StateContextChildComponent/>
-        </StateContext.Provider>
+        </StateContext>
     </>
 }
