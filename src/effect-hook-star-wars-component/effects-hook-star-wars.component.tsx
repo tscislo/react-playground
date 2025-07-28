@@ -1,4 +1,5 @@
 import {useCallback, useEffect, useState} from "react";
+import {useNavigate, useParams} from "react-router";
 import {StarWarsCharacterComponent} from "./star-wars-character.component";
 
 interface Movie {
@@ -17,7 +18,8 @@ export async function getDataFromApi<T>(url: string, controller: AbortController
 export const EffectsHookStarWarsComponent = () => {
     console.log("EffectsHookStarWarsComponent");
     const [moviesState, setMovies] = useState<Movie[]>();
-    const [selectedMovieEpisodeId, setSelectedMovieEpisodeId] = useState<number | undefined>(undefined);
+    let { movieId } = useParams();
+    let navigate = useNavigate();
     const [nameFilter, setNameFilter] = useState<string>("");
 
     useEffect(() => {
@@ -31,11 +33,12 @@ export const EffectsHookStarWarsComponent = () => {
     }, []);
 
     const onMovieSelected = useCallback((episodeId: number) => {
-        setSelectedMovieEpisodeId(episodeId);
+        console.log("onMovieSelected", episodeId);
+        navigate('/effects-hook-star-wars/' +  episodeId);
     }, []);
 
     const getSelectedMovie = useCallback(() =>
-            moviesState?.find((movie) => movie.episode_id === selectedMovieEpisodeId), [selectedMovieEpisodeId]);
+            moviesState?.find((movie) => movie.episode_id === parseInt(movieId ?? "0")), [moviesState, movieId]);
 
     return (
             <div style={{'border': '2px orange solid'}}>
@@ -43,7 +46,9 @@ export const EffectsHookStarWarsComponent = () => {
                 {(moviesState?.length===0) ?
                         <div>Loading...</div>:
                         <>
-                            <select onChange={(e) => onMovieSelected(parseInt(e.target.value, 10))}>
+                            <select
+                                    value={movieId}
+                                    onChange={(e) => onMovieSelected(parseInt(e.target.value, 10))}>
                                 <option value={undefined}>--Select Episode--</option>
                                 {moviesState?.map(episode => (
                                         <option
@@ -53,7 +58,7 @@ export const EffectsHookStarWarsComponent = () => {
                             </select>
                             <input  placeholder={"search by character name"}
                                     value={nameFilter} onChange={(e) => setNameFilter(e.target.value)} />
-                            {selectedMovieEpisodeId ?
+                            {movieId ?
                                     <>
                                         <h4>Selected episode: {getSelectedMovie()?.title}</h4>
                                         <div> {getSelectedMovie()?.opening_crawl} </div>

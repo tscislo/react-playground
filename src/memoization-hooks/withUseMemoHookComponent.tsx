@@ -2,7 +2,7 @@ import {useCallback, useMemo, useState} from "react";
 
 export const WithUseMemoHookComponent = ({param}: {param: number}) => {
     console.log('MemoizedComponent');
-    const [state, setState] = useState(0);
+    const [state] = useState(0);
 
     const someFn = useCallback(() => {
         console.log('Current state:', state);
