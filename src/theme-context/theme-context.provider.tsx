@@ -8,9 +8,9 @@ export const ThemeContextProvider = (props: PropsWithChildren) => {
         <ThemeContext value={theme}>
             <div data-testid={'someText'}>Some text</div>
             <div style={{'border': '2px blue solid'}}>
-                <select value={theme} onChange={(e) => setTheme(e.target.value as Theme)}>
+                <select data-testId="theme-selector" value={theme} onChange={(e) => setTheme(e.target.value as Theme)}>
                     <option value={Theme.LIGHT}>Light</option>
-                    <option value={Theme.DARK}>Dark</option>
+                    <option value={Theme.DARK} data-testId="dark-theme">Dark</option>
                 </select>
                 {props.children}
             </div>
