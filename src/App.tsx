@@ -1,6 +1,9 @@
 import React, {lazy, Suspense} from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router";
+import {
+    SpinnerHigherOrderExampleComponent
+} from "./spinner-higher-order-component/spinner-higher-order-example.component";
 
 
 // Lazy imports
@@ -63,6 +66,7 @@ function App() {
                                 <Route path="forward-ref" element={<ForwardRefComponent/>}/>
                                 <Route path="deferred-value" element={<DeferredValueConsumer/>}/>
                                 <Route path="higher-order-component" element={<HigherOrderExampleComponent/>}/>
+                                <Route path="spinner-higher-order-component" element={<SpinnerHigherOrderExampleComponent/>}/>
                                 <Route path="*" element={<h1>Page not found</h1>}/>
                             </Route>
                         </Routes>
