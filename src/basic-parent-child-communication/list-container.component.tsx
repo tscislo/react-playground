@@ -8,7 +8,7 @@ const users: User[] = [
     {name: 'David'}
 ];
 
-export const ListContainerComponent = () => {
+const ListContainerComponent = () => {
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
     const onSelect = (user: User) => {
         setSelectedUser(user);
@@ -24,3 +24,5 @@ export const ListContainerComponent = () => {
     );
 
 }
+
+export default ListContainerComponent;

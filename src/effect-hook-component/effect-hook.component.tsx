@@ -53,3 +53,5 @@ export const EffectHookComponent = () => {
         </div>
     )
 }
+
+export default EffectHookComponent;

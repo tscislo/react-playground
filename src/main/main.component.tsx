@@ -8,3 +8,5 @@ export const MainComponent = () => {
         <Outlet />
     </>
 }
+
+export default MainComponent;

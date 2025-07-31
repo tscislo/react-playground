@@ -8,3 +8,6 @@ export const MySuspenseConsumerComponent = () => {
         <MySuspenseComponent/>
     </Suspense></div>
 }
+
+
+export default MySuspenseConsumerComponent;

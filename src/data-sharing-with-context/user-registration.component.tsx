@@ -1,9 +1,10 @@
+import {lazy} from "react";
 import {ChangeNameComponent} from "./change-name.component";
 import {EmailComponent} from "./email.component";
 import {UserContextProviderComponent} from "./user-context-provider.component";
-import {UserComponent} from "./user.component";
+const UserComponent =  lazy(() => import('./user.component'));
 
-export const UserRegistrationComponent = () => {
+const UserRegistrationComponent = () => {
     return <div style={{'border': '2px orange solid'}}>
         <UserContextProviderComponent>
             <UserComponent/>
@@ -13,3 +14,5 @@ export const UserRegistrationComponent = () => {
         </UserContextProviderComponent>
     </div>
 }
+
+export default UserRegistrationComponent

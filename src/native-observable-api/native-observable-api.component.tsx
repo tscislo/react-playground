@@ -28,3 +28,5 @@ export const NativeObservableApiComponent = () => {
         <input id={'enabled'} type={'checkbox'} ref={checkboxRef}/> <label htmlFor={'enabled'}>Enabled?</label>
     </div>
 }
+
+export default NativeObservableApiComponent;

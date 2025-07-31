@@ -25,3 +25,5 @@ export const ParentColorComponent = () => {
         </div>
     )
 }
+
+export default ParentColorComponent;

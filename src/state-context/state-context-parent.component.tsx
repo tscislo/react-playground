@@ -19,3 +19,5 @@ export const StateContextParentComponent = () => {
         </StateContext>
     </>
 }
+
+export default StateContextParentComponent;

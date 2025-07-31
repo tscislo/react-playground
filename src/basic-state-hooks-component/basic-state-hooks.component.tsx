@@ -75,7 +75,7 @@ const countReducer = (state: CountState, action: MathAction): CountState => {
 
 }
 
-export const BasicStateHooksComponent = () => {
+const BasicStateHooksComponent = () => {
     const [count, setCount] = useState<number>(0);
     const [state, dispatchMathAction] = useReducer(countReducer, {count: 100, modifierValue: 0});
     const rerenderCount = useRef(0);
@@ -116,3 +116,5 @@ export const BasicStateHooksComponent = () => {
             </div>
     )
 }
+
+export default BasicStateHooksComponent;

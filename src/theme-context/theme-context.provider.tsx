@@ -17,3 +17,5 @@ export const ThemeContextProvider = (props: PropsWithChildren) => {
         </ThemeContext>
     );
 }
+
+export default ThemeContextProvider;

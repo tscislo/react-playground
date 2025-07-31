@@ -9,3 +9,5 @@ export const ThemeCharacterComponent = () => {
         </div>
     );
 }
+
+export default ThemeCharacterComponent;

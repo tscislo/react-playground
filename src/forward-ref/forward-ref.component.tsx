@@ -2,7 +2,7 @@ import {useEffect, useRef} from "react";
 import {FancyButtonWithForwardRefComponent} from "./fancy-button-with-forwardRef.component";
 import {FancyButton} from "./fancy-button.component";
 
-export const ForwardRefComponent = () => {
+const ForwardRefComponent = () => {
     const h2Ref = useRef(null);
     const ref = useRef<HTMLButtonElement | null>(null);
     const ref2 = useRef<HTMLElement | null>(null);
@@ -19,3 +19,5 @@ export const ForwardRefComponent = () => {
         <FancyButtonWithForwardRefComponent ref={ref2} />
     </>
 }
+
+export default ForwardRefComponent;

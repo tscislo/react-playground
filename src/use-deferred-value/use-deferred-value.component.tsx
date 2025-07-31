@@ -18,3 +18,6 @@ export const DeferredValueConsumer = () => {
         <DeferredValue input={value} />
     </>
 }
+
+
+export default DeferredValueConsumer;

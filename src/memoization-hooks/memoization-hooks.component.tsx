@@ -20,3 +20,5 @@ export const SampleComponent = () => {
             </div>
     )
 }
+
+export default SampleComponent;

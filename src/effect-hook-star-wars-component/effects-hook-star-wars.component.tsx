@@ -15,7 +15,7 @@ export async function getDataFromApi<T>(url: string, controller: AbortController
     return await res.json();
 }
 
-export const EffectsHookStarWarsComponent = () => {
+const EffectsHookStarWarsComponent = () => {
     console.log("EffectsHookStarWarsComponent");
     const [moviesState, setMovies] = useState<Movie[]>();
     let { movieId } = useParams();
@@ -75,3 +75,5 @@ export const EffectsHookStarWarsComponent = () => {
             </div>
     );
 }
+
+export default EffectsHookStarWarsComponent;
