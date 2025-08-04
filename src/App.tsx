@@ -1,6 +1,7 @@
 import React, {lazy, Suspense} from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router";
+import {MyErrorBoundaryComponent} from "./native-error-boundary/my-error-boundary.component";
 
 // Lazy imports
 const ListContainerComponent = lazy(() => import('./basic-parent-child-communication/list-container.component'));
@@ -60,6 +61,7 @@ function App() {
                                 <Route path="user-registration" element={<UserRegistrationComponent/>}/>
                                 <Route path="forward-ref" element={<ForwardRefComponent/>}/>
                                 <Route path="deferred-value" element={<DeferredValueConsumer/>}/>
+                                <Route path="my-error-boundary" element={<MyErrorBoundaryComponent/>}/>
                                 <Route path="*" element={<h1>Page not found</h1>}/>
                             </Route>
                         </Routes>
