@@ -6,6 +6,9 @@ import {MyErrorBoundaryComponent} from "./native-error-boundary/my-error-boundar
 import {
     SpinnerHigherOrderExampleComponent
 } from "./spinner-higher-order-component/spinner-higher-order-example.component";
+import {
+    SuspenseErrorBoundaryExampleComponent
+} from "./suspense-error-boundary/suspense-error-boundary-example.component";
 
 
 // Lazy imports
@@ -69,6 +72,7 @@ function App() {
                                 <Route path="forward-ref" element={<ForwardRefComponent/>}/>
                                 <Route path="deferred-value" element={<DeferredValueConsumer/>}/>
                                 <Route path="my-error-boundary" element={<MyErrorBoundaryComponent/>}/>
+                                <Route path="suspence-error-boundary" element={<SuspenseErrorBoundaryExampleComponent/>}/>
                                 <Route path="error-boundary" element={<ErrorBoundaryComponent/>}/>
                                 <Route path="higher-order-component" element={<HigherOrderExampleComponent/>}/>
                                 <Route path="spinner-higher-order-component"
