@@ -1,6 +1,7 @@
 import React, {lazy, Suspense} from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router";
+import {ErrorBoundaryComponent} from "./error-boundary/error-boundary.component";
 import {MyErrorBoundaryComponent} from "./native-error-boundary/my-error-boundary.component";
 import {
     SpinnerHigherOrderExampleComponent
@@ -29,7 +30,7 @@ const HigherOrderExampleComponent = lazy(() => import('./higher-order-component/
 
 const withSuspense = (Component: React.ComponentType) => (
         <Suspense fallback={<div>Loading...</div>}>
-            <Component />
+            <Component/>
         </Suspense>
 );
 
@@ -42,7 +43,8 @@ function App() {
                             <Route path="/" element={<MainComponent/>}>
                                 <Route index element={<IndexComponent/>}/>
                                 <Route
-                                        path="basic-parent-child-communication" element={withSuspense(ListContainerComponent)}/>
+                                        path="basic-parent-child-communication"
+                                        element={withSuspense(ListContainerComponent)}/>
                                 <Route path="effects-hook-star-wars/:movieId?"
                                        element={<EffectsHookStarWarsComponent/>}/>
                                 <Route path="lifted-local-state" element={<ParentComponent/>}/>
@@ -67,8 +69,10 @@ function App() {
                                 <Route path="forward-ref" element={<ForwardRefComponent/>}/>
                                 <Route path="deferred-value" element={<DeferredValueConsumer/>}/>
                                 <Route path="my-error-boundary" element={<MyErrorBoundaryComponent/>}/>
+                                <Route path="error-boundary" element={<ErrorBoundaryComponent/>}/>
                                 <Route path="higher-order-component" element={<HigherOrderExampleComponent/>}/>
-                                <Route path="spinner-higher-order-component" element={<SpinnerHigherOrderExampleComponent/>}/>
+                                <Route path="spinner-higher-order-component"
+                                       element={<SpinnerHigherOrderExampleComponent/>}/>
                                 <Route path="*" element={<h1>Page not found</h1>}/>
                             </Route>
                         </Routes>
