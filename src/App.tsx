@@ -2,6 +2,10 @@ import React, {lazy, Suspense} from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router";
 import {MyErrorBoundaryComponent} from "./native-error-boundary/my-error-boundary.component";
+import {
+    SpinnerHigherOrderExampleComponent
+} from "./spinner-higher-order-component/spinner-higher-order-example.component";
+
 
 // Lazy imports
 const ListContainerComponent = lazy(() => import('./basic-parent-child-communication/list-container.component'));
@@ -21,6 +25,7 @@ const MySuspenseConsumerComponent = lazy(() => import('./suspense/my-suspense-co
 const ThemeCharacterComponent = lazy(() => import('./theme-context/theme-character.component'));
 const ThemeContextProvider = lazy(() => import('./theme-context/theme-context.provider'));
 const DeferredValueConsumer = lazy(() => import('./use-deferred-value/use-deferred-value.component'));
+const HigherOrderExampleComponent = lazy(() => import('./higher-order-component/higher-order-example.component'));
 
 const withSuspense = (Component: React.ComponentType) => (
         <Suspense fallback={<div>Loading...</div>}>
@@ -62,6 +67,8 @@ function App() {
                                 <Route path="forward-ref" element={<ForwardRefComponent/>}/>
                                 <Route path="deferred-value" element={<DeferredValueConsumer/>}/>
                                 <Route path="my-error-boundary" element={<MyErrorBoundaryComponent/>}/>
+                                <Route path="higher-order-component" element={<HigherOrderExampleComponent/>}/>
+                                <Route path="spinner-higher-order-component" element={<SpinnerHigherOrderExampleComponent/>}/>
                                 <Route path="*" element={<h1>Page not found</h1>}/>
                             </Route>
                         </Routes>
