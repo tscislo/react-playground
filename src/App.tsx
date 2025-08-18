@@ -10,6 +10,7 @@ import {
     SuspenseErrorBoundaryExampleComponent
 } from "./suspense-error-boundary/suspense-error-boundary-example.component";
 
+import reactLogo from './logo.svg';
 
 // Lazy imports
 const ListContainerComponent = lazy(() => import('./basic-parent-child-communication/list-container.component'));
@@ -41,6 +42,7 @@ function App() {
     return (
             <BrowserRouter>
                 <div className="App">
+                    <img src={reactLogo} width={100} height={100}/>
                     <Suspense fallback={<div>Loading...</div>}>
                         <Routes>
                             <Route path="/" element={<MainComponent/>}>
