@@ -45,7 +45,7 @@ export const EffectHookComponent = () => {
                                     data-testid={characterItem.id}
                                     value={characterItem.id} key={characterItem.id}>{characterItem.name}</option>))}
                         </select>
-                        <CharacterComponent name={character?.name} dateOfBirth={character?.dateOfBirth}/>
+                        <CharacterComponent {...character}/>
                         <CharacterPowerComponent character={character}/>
                     </>
                 )
