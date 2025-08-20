@@ -1,5 +1,5 @@
 import {memo} from "react";
-import {withDateInUtc} from "./higher-order-component";
+import {withDateInUtc} from "./with-date-in-utc-hoc";
 import {LowerOrderComponentMore} from "./lower-order-more.component";
 import {LowerOrderComponent} from "./lower-order.component";
 
