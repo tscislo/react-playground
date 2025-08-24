@@ -1,10 +1,14 @@
-import {memo} from "react";
+import {ElementType, memo} from "react";
 
-export const MemoizedComponent = memo(({user}: {user: {name: string}}) => {
+export const MemoizedComponent = memo((
+        {user, NotWrapper}: {
+            user: { name: string },
+            NotWrapper: ElementType
+        }) => {
     console.log('MemoizedComponent rendered')
     return (
             <div>
-                I will not re-render unless my props change
+                I will <NotWrapper>NOT</NotWrapper> re-render unless my props change
                 {user.name}
             </div>
     )
