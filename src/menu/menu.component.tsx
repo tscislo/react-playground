@@ -23,5 +23,6 @@ export const MenuComponent = memo(() => {
         <li><NavLink to={'higher-order-component'}>higher-order-component</NavLink></li>
         <li><NavLink to={'spinner-higher-order-component'}>spinner-higher-order-component</NavLink></li>
         <li><NavLink to={'suspence-error-boundary'}>suspence-error-boundary</NavLink></li>
+        <li><NavLink to={'class-component-to-functional-component'}>class-component-to-functional-component</NavLink></li>
     </ul>
 })
