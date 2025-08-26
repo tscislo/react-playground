@@ -5,6 +5,7 @@ import {
     ClassComponentToFunctionalComponent
 } from "./class-component-to-functional-component/class-component-to-functional-component";
 import {ErrorBoundaryComponent} from "./error-boundary/error-boundary.component";
+import {MyObserverSubscriberComponent} from "./my-observer-subscriber/my-observer-subscriber.component";
 import {MyErrorBoundaryComponent} from "./native-error-boundary/my-error-boundary.component";
 import {
     SpinnerHigherOrderExampleComponent
@@ -83,6 +84,7 @@ function App() {
                                 <Route path="spinner-higher-order-component"
                                        element={<SpinnerHigherOrderExampleComponent/>}/>
                                 <Route path="class-component-to-functional-component" element={<ClassComponentToFunctionalComponent/>}/>
+                                <Route path="my-observer-subscriber" element={<MyObserverSubscriberComponent/>}/>
                                 <Route path="*" element={<h1>Page not found</h1>}/>
                             </Route>
                         </Routes>
