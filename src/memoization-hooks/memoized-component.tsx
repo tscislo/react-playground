@@ -8,8 +8,11 @@ export const MemoizedComponent = memo((
     console.log('MemoizedComponent rendered')
     return (
             <div>
+                TEST
                 I will <NotWrapper>NOT</NotWrapper> re-render unless my props change
                 {user.name}
             </div>
     )
+}, (prevProps, nextProps) => {
+    return prevProps.user.name === nextProps.user.name;
 });

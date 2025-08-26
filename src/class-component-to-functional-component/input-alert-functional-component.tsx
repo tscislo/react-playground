@@ -1,7 +1,7 @@
 import {ChangeEvent, FC, useCallback, useState} from "react";
 import {InputAlertState} from "./input-alert-class-component";
 
-export const InputAlertFunctionalComponent: FC = () => {
+export const InputAlertFunctionalComponent: FC<{name: string}> = ({name}) => {
     const [state, setState] = useState<InputAlertState>({
         inputValue: ""
     })
@@ -17,6 +17,7 @@ export const InputAlertFunctionalComponent: FC = () => {
     }, []);
 
     return <div>
+        <h2>{name}</h2>
         <input
                 type="text"
                 value={state.inputValue}

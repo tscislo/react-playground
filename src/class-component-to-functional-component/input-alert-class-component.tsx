@@ -4,7 +4,7 @@ export interface InputAlertState {
     inputValue: string;
 }
 
-class InputAlert extends Component<{}, InputAlertState> {
+class InputAlert extends Component<{name : string}, InputAlertState> {
     public state: InputAlertState = {
         inputValue: "",
     };
@@ -20,6 +20,7 @@ class InputAlert extends Component<{}, InputAlertState> {
     render() {
         return (
                 <div>
+                    <h2>{this.props.name}</h2>
                     <input
                             type="text"
                             value={this.state.inputValue}

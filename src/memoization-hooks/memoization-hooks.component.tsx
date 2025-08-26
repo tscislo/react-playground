@@ -1,6 +1,8 @@
 import {useState} from "react";
 import {CustomWrapperComponent} from "./custom-wrapper.component";
+import {MemoizedClassComponent} from "./memoized-class-component";
 import {MemoizedComponent} from "./memoized-component";
+import {RegularClassComponent} from "./regular-class-component";
 import {RegularComponent} from "./regular-component";
 import {RegularComponentNoProps} from "./regular-component-no-props";
 import {WithUseMemoHookComponent} from "./withUseMemoHookComponent";
@@ -21,6 +23,8 @@ export const SampleComponent = () => {
                 <MemoizedComponent user={user} NotWrapper={CustomWrapperComponent}/>
                 <RegularComponent user={user}/>
                 <RegularComponentNoProps />
+                <RegularClassComponent />
+                <MemoizedClassComponent />
             </div>
     )
 }
